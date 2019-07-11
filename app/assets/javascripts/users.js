@@ -1,6 +1,6 @@
 console.log('test');
 
-const fetchXboxProfile = (query) => {
+const fetchXboxXuid= (query) => {
   return axios({
     url: "https://xboxapi.com/v2/xuid/" + query,
     method: 'get',
@@ -12,6 +12,19 @@ const fetchXboxProfile = (query) => {
   });
 };
 
+const fetchXboxProfile= (query) => {
+  return axios({
+    url: "https://xboxapi.com/v2/" + query + "/profile",
+    method: 'get',
+    data: '',
+    dataType: 'json',
+    headers: {
+      "X-Auth" : "91d05ba9314a8674642feacc02bd3ab3af4e1d6d",
+    }
+  });
+};
+
+
   document.addEventListener("turbolinks:load", async (event) =>{
     console.log("test");
     const hasUserName = document.getElementById('username').innerText;
@@ -19,9 +32,17 @@ const fetchXboxProfile = (query) => {
     if (hasUserName) {
       const {
         data
-      } = await fetchXboxProfile(hasUserName)
-
+      } = await fetchXboxXuid(hasUserName)
       var xuid = data["xuid"]
       console.log(xuid);
+
+      if (xuid) {
+        const {
+          data
+        } = await fetchXboxProfile(xuid)
+        var profile = data
+        console.log(profile);
+      }
     }
+
   })
