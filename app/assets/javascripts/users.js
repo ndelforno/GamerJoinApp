@@ -24,6 +24,18 @@ const fetchXboxProfile= (query) => {
   });
 };
 
+const fetchXboxOneGames= (query) => {
+  return axios({
+    url: "https://xboxapi.com/v2/" + query + "/xboxonegames",
+    method: 'get',
+    data: '',
+    dataType: 'json',
+    headers: {
+      "X-Auth" : "91d05ba9314a8674642feacc02bd3ab3af4e1d6d",
+    }
+  });
+};
+
 
   document.addEventListener("turbolinks:load", async (event) =>{
     console.log("test");
@@ -38,10 +50,15 @@ const fetchXboxProfile= (query) => {
 
       if (xuid) {
         const {
-          data
+          dataProfile
         } = await fetchXboxProfile(xuid)
-        var profile = data
+        var profile = dataProfile
         console.log(profile);
+        const {
+          dataGames
+        } = await fetchXboxOneGames(xuid)
+        var xboxOneGames = dataGames
+        console.log(xboxOneGames);
       }
     }
 
