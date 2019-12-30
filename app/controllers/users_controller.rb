@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
 
   def get_xbox_profile(xuid)
-      url = "https://xboxapi.com/v2/#{xuid}/profile"
+      url = "https://xboxapi.com/v2/#{xuid}/new-profile"
       response = HTTParty.get(url, headers: {"X-Auth" => @@token})
       body = JSON.parse(response.body)
       return body
@@ -26,6 +26,7 @@ class UsersController < ApplicationController
     url = "https://xboxapi.com/v2/#{xuid}/xboxonegames"
     response = HTTParty.get(url, headers: {"X-Auth" => @@token})
     body = JSON.parse(response.body)
+    puts 'here'
     return body
   end
 
