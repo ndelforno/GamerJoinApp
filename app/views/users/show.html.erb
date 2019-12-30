@@ -4,7 +4,8 @@
   <h2 id ="username"><%= @user.username %></h2>
   <%= image_tag @xboxprofile["displayPicRaw"], :class => "Gamer_pic" %>
   <p>Xuid: <%= @xuid %></p>
-  <p>Your Gamerscore: <%= @xboxprofile["Gamerscore"] %> - Membership: <%= @xboxprofile["AccountTier"] %> - Reputation: <%= @xboxprofile["XboxOneRep"] %> </p>
+  <p>Gamerscore: <%= @xboxprofile["gamerScore"] %>G - Membership: <%= @xboxprofile["detail"]["accountTier"] %> - Reputation: <%= @xboxprofile["xboxOneRep"] %> </p>
+  <p>Friends: <%= @xboxprofile["detail"]["followerCount"]  %></p>
   <br>
 </div>
 
