@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  @@token = "91d05ba9314a8674642feacc02bd3ab3af4e1d6d"
+  @@token = "b356166581e64488aa7b95b8817465ffe23b0c64"
   def show
     @user = User.find(params[:id])
     @xuid = get_xuid(@user)

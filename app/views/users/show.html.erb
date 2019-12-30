@@ -1,6 +1,13 @@
-<h1 id = 'username'><%= @user.username %></h1>
 
-<p>Xuid: <%= @xuid %></p>
-<p><%= @xboxprofile %></p>
-<br>
+<h1>Welcome to your gamer hub</h1>
+<div class= "xbox_profile">
+  <h2 id = 'username'><%= @user.username %></h2>
+  <%= image_tag @xboxprofile["GameDisplayPicRaw"], :class => "Gamer_pic" %>
+  <p>Xuid: <%= @xuid %></p>
+  <p>Your Gamerscore: <%= @xboxprofile["Gamerscore"] %> - Membership: <%= @xboxprofile["AccountTier"] %> - Reputation: <%= @xboxprofile["XboxOneRep"] %> </p>
+  <br>
+</div>
+
+
+<h2>Your Xbox Games</h2>
 <p><%= @xboxonegames %></p>
